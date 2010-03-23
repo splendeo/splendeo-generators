@@ -1,11 +1,11 @@
-= Nifty Generators
+= Splendeo Generators
 
 A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 
 
 == Install
 
-  gem install nifty-generators
+  gem install splendeo-generators
 
 
 == Usage
@@ -14,28 +14,28 @@ Once you install the gem, the generators will be available to all Rails applicat
 
 To run the generator, go to your rails project directory and call it using the script/generate or script/destroy command.
 
-  script/generate nifty_scaffold Recipe name:string index new
+  script/generate splendeo_scaffold Recipe name:string index new
 
 
 == Included Generators
 
-* nifty_layout: generates generic layout, stylesheet, and helper files.
-* nifty_scaffold: generates a controller and optional model/migration.
-* nifty_config: generates a config YAML file and loader.
-* nifty_authentication: generates user model with sign up and log in.
+* splendeo_layout: generates generic layout, stylesheet, and helper files.
+* splendeo_scaffold: generates a controller and optional model/migration.
+* splendeo_config: generates a config YAML file and loader.
+* splendeo_authentication: generates user model with sign up and log in.
 
 To view the README for each generator, run it with the +--help+ option.
 
-  script/generate nifty_layout --help
+  script/generate splendeo_layout --help
 
 
 == Troubleshooting and FAQs
 
-<b>What is the difference between nifty_scaffold and built-in scaffold?</b>
+<b>What is the difference between splendeo_scaffold and built-in scaffold?</b>
 
-One of the primary differences is that nifty_scaffold allows you to choose which controller actions to generate.
+One of the primary differences is that splendeo_scaffold allows you to choose which controller actions to generate.
 
-  script/generate nifty_scaffold post name:string index new edit
+  script/generate splendeo_scaffold post name:string index new edit
 
 There are a few changes to the generated code as well, such as no XML format by default.
 
@@ -44,7 +44,7 @@ It also offers support for HAML, Shoulda, and RSpec.
 
 <b>I get "undefined method 'title'" error.</b>
 
-Try running nifty_layout, that will generate this helper method. Or you can just change the templates to whatever approach you prefer for setting the title.
+Try running splendeo_layout, that will generate this helper method. Or you can just change the templates to whatever approach you prefer for setting the title.
 
 
 <b>I can't set new attributes in my model.</b>
@@ -86,13 +86,13 @@ Also, make sure you're using Rails 2.1 or greater.
 
 == Found a bug?
 
-If you are having a problem with Nifty Generators, first look at the FAQs above. If you still cannot resolve it, please submit an issue here.
+If you are having a problem with Splendeo Generators, first look at the FAQs above. If you still cannot resolve it, please submit an issue here.
 
-http://github.com/ryanb/nifty-generators/issues
+http://github.com/ryanb/splendeo-generators/issues
 
 
 == Rails 3
 
-Nifty Generators does not yet officially work with Rails 3, but a fork is available here.
+Splendeo Generators does not yet officially work with Rails 3, but a fork is available here.
 
-http://github.com/dvyjones/nifty-generators
+http://github.com/dvyjones/splendeo-generators
