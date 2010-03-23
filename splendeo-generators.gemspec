@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.description = "A fork of ryanb's nifty-generators, with i18n and blueprint."
   s.homepage = "http://github.com/splendeo/splendeo-generators"
   
-  s.version = "0.3.3"
+  s.version = "0.1.0"
   s.date = "2010-02-16"
   
   s.authors = ["Ryan Bates", "Enrique Garcia Cota"]
