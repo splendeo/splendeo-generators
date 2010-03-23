@@ -1,14 +1,14 @@
 Gem::Specification.new do |s|
   s.name = "nifty-generators"
   s.summary = "A collection of useful Rails generator scripts."
-  s.description = "A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more."
-  s.homepage = "http://github.com/ryanb/nifty-generators"
+  s.description = "A fork of ryanb's nifty-generators, with i18n and blueprint."
+  s.homepage = "http://github.com/splendeo/nifty-generators"
   
   s.version = "0.3.2"
   s.date = "2010-02-16"
   
-  s.authors = ["Ryan Bates"]
-  s.email = "ryan@railscasts.com"
+  s.authors = ["Enrique Garcia Cota"]
+  s.email = "egarcia@splendeo.es"
   
   s.require_paths = ["lib"]
   s.files = Dir["lib/**/*"] + Dir["test/**/*"] + Dir["rails_generators/**/*"] + ["LICENSE", "README.rdoc", "Rakefile", "CHANGELOG"]
