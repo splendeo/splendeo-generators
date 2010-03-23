@@ -11,6 +11,7 @@ class NiftyLayoutGenerator < Rails::Generator::Base
       m.directory 'app/helpers'
       
       if options[:haml]
+        m.directory 'vendor/plugins/haml'
         m.directory 'public/stylesheets/sass'
         m.directory 'public/stylesheets/sass/blueprint-sass'
         m.directory 'public/stylesheets/sass/blueprint-sass/plugins'
@@ -19,6 +20,7 @@ class NiftyLayoutGenerator < Rails::Generator::Base
         m.directory 'public/stylesheets/sass/blueprint-sass/plugins/link-icons'
         m.directory 'public/stylesheets/sass/blueprint-sass/plugins/rtl'
 
+        m.file 'haml/init.rb', 'vendor/plugins/haml/init.rb'
         m.file 'blueprint-sass/ie.sass',     'public/stylesheets/sass/blueprint-sass/ie.sass'
         m.file 'blueprint-sass/print.sass',  'public/stylesheets/sass/blueprint-sass/print.sass'
         m.file 'blueprint-sass/screen.sass', 'public/stylesheets/sass/blueprint-sass/screen.sass'
