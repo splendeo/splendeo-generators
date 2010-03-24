@@ -12,3 +12,23 @@ en:
   flash_notice_successfully_created: "Successfully created {{model}}"
   flash_notice_successfully_destroyed: "Successfully destroyed {{model}}"
   flash_notice_successfully_updated: "Successfully destroyed {{model}}"
+
+  # Authentication
+  log_in_button: "Log In"
+  log_in_message: "Already have an account? <a href='{{url}}>Log in!</a>"
+  log_in_title: "Log In"
+  sign_up_button: "Sign Up"
+  sign_up_message: "Don't have an account? <a href='{{url}}'>Sign up!</a>"
+  sign_up_title: "Sign Up"
+  login_label: "Login"
+  password_label: "Password"
+
+  flash_notice_logged_in: "Logged in successfully."
+  flash_notice_logged_out: "You have been logged out."
+  flash_notice_signed_up: "Thank you for signing up! You are now logged in."
+  flash_error_login_required: "You must first log in or sign up before accessing this page."
+  flash_error_invalid_login: "Invalid login or password."
+  
+  username_validation_message: "should only contain letters, numbers, or .-_@"
+
+

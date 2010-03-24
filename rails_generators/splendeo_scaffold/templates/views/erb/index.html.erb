@@ -3,7 +3,7 @@
 <table>
   <tr>
   <%- for attribute in attributes -%>
-    <th><%= attribute.column.human_name.titleize %></th>
+    <th><%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %></th>
   <%- end -%>
   </tr>
   <%% for <%= singular_name %> in @<%= plural_name %> %>

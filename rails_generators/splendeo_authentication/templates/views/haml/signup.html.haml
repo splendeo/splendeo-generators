@@ -1,24 +1,13 @@
-- title "Sign up"
+- title t('sign_up_title')
 
-%p== Already have an account? #{link_to "Log in", login_path}.
+%p=t('log_in_message', :url => login_path)
 
-- form_for @<%= user_singular_name %> do |f|
-  = f.error_messages
-  %p
-    = f.label :username
-    %br
-    = f.text_field :username
-  %p
-    = f.label :email, "Email Address"
-    %br
-    = f.text_field :email
-  %p
-    = f.label :password
-    %br
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Confirm Password"
-    %br
-    = f.password_field :password_confirmation
-  %p
-    = f.submit "Sign up"
+- semantic_form_for @<%= user_singular_name %> do |f|
+  = f.semantic_errors
+  - f.inputs do
+    = f.input :username
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+  - f.buttons do
+    = f.commit_button t('sign_up_button')

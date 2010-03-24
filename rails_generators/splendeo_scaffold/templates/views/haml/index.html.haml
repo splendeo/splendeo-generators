@@ -3,7 +3,7 @@
 %table
   %tr
     <%- for attribute in attributes -%>
-    %th <%= attribute.column.human_name %>
+    %th= <%= class_name %>.human_attribute_name('<%= attribute.name %>')
     <%- end -%>
   - for <%= singular_name %> in @<%= plural_name %>
     %tr

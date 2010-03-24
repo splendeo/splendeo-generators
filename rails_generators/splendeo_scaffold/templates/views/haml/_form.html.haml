@@ -1,4 +1,5 @@
 - semantic_form_for @<%= singular_name %> do |f|
+  = f.semantic_errors
   - f.inputs do
     <%- for attribute in attributes -%>
     = f.input :<%= attribute.name %>
