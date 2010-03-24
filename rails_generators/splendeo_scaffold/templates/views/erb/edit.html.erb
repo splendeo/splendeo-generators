@@ -1,14 +1,14 @@
-<%% title "Edit <%= singular_name.titleize %>" %>
+<%% title t('edit_title', :model => <%= class_name %>.human_name) %> 
 
 <%= render_form %>
 
 <%- if actions? :show, :index -%>
 <p>
 <%- if action? :show -%>
-  <%%= link_to "Show", @<%= singular_name %> %> |
+  <%%= link_to t("show_link"), @<%= singular_name %> %> |
 <%- end -%>
 <%- if action? :index -%>
-  <%%= link_to "View All", <%= plural_name %>_path %>
+  <%%= link_to t("view_all_link"), <%= plural_name %>_path %>
 <%- end -%>
 </p>
 <%- end -%>

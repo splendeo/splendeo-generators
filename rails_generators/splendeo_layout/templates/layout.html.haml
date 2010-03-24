@@ -6,16 +6,19 @@
       = h(yield(:title) || "Untitled")
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
-    = stylesheet_link_tag 'blueprint-sass/screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'blueprint-sass/print.css', :media => 'print'
+    = stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'blueprint/print.css', :media => 'print'
     /[if lt IE 8]
-      = stylesheet_link_tag 'blueprint-sass/ie.css', :media => 'screen, projection'
+      = stylesheet_link_tag 'blueprint/ie.css', :media => 'screen, projection'
 
     / uncomment for activating blueprint plugins
-    /= stylesheet_link_tag 'blueprint-sass/plugins/buttons/screen.css', :media => 'screen, projection'
-    /= stylesheet_link_tag 'blueprint-sass/plugins/fancy-type/screen.css', :media => 'screen, projection'
-    /= stylesheet_link_tag 'blueprint-sass/plugins/link-icons/screen.css', :media => 'screen, projection'
-    /= stylesheet_link_tag 'blueprint-sass/plugins/rtl/screen.css', :media => 'screen, projection'
+    /= stylesheet_link_tag 'blueprint/plugins/buttons/screen.css', :media => 'screen, projection'
+    /= stylesheet_link_tag 'blueprint/plugins/fancy-type/screen.css', :media => 'screen, projection'
+    /= stylesheet_link_tag 'blueprint/plugins/link-icons/screen.css', :media => 'screen, projection'
+    /= stylesheet_link_tag 'blueprint/plugins/rtl/screen.css', :media => 'screen, projection'
+
+    = stylesheet_link_tag 'formtastic.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'formtastic_changes.css', :media => 'print'
 
     = stylesheet_link_tag '<%= file_name %>'
     = yield(:head)
