@@ -10,11 +10,18 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
       m.directory 'public/stylesheets'
       m.directory 'app/helpers'
       m.directory 'config/initializers'
-      m.file 'initializers/formtastic.rb', 'config/initializers/formtastic.rb'
+      m.file 'config/initializers/formtastic.rb', 'config/initializers/formtastic.rb' unless options[:skip_formtastic]
+
+      unless options[:skip_locale]
+        m.file 'config/locales/en.yml', 'config/locales/en.yml'
+      end
       
       if options[:haml]
-        m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
-        m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
+      
+        unless options[:skip_formtastic]
+          m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
+          m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
+        end
 
         m.directory 'vendor/plugins/haml'
         m.directory 'public/stylesheets/sass'
@@ -37,9 +44,12 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
         m.template "layout.html.haml", "app/views/layouts/#{file_name}.html.haml"
         m.file     "sass/stylesheet.sass",  "public/stylesheets/sass/#{file_name}.sass"
       else
-        m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
-        m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
- 
+
+        unless options[:skip_formtastic]
+          m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
+          m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
+        end
+
         m.directory 'public/stylesheets/blueprint'
         m.directory 'public/stylesheets/blueprint/plugins'
         m.directory 'public/stylesheets/blueprint/plugins/buttons'
@@ -72,6 +82,8 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
       opt.separator ''
       opt.separator 'Options:'
       opt.on("--haml", "Generate HAML for view, and SASS for stylesheet.") { |v| options[:haml] = v }
+      opt.on("--skip-locale", "Skips the generation of a locale file") { |v| options[:skip_locale] = true }
+      opt.on("--skip-formtastic", "Skips the generation formtastic-related files") { |v| options[:skip_formtastic] = true }
     end
 
     def banner
