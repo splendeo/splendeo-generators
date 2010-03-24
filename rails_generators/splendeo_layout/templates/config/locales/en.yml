@@ -13,6 +13,12 @@ en:
   flash_notice_successfully_destroyed: "Successfully destroyed {{model}}"
   flash_notice_successfully_updated: "Successfully destroyed {{model}}"
 
+  # Formtastic buttons
+  formtastic:
+    actions:
+      create: "Create {{model}}"
+      update: "Update {{model}}"
+
   # Authentication
   log_in_button: "Log In"
   log_in_message: "Already have an account? <a href='{{url}}>Log in!</a>"
@@ -28,7 +34,8 @@ en:
   flash_notice_signed_up: "Thank you for signing up! You are now logged in."
   flash_error_login_required: "You must first log in or sign up before accessing this page."
   flash_error_invalid_login: "Invalid login or password."
-  
+
   username_validation_message: "should only contain letters, numbers, or .-_@"
+
 
 
