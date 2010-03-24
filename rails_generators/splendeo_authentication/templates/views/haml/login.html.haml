@@ -4,7 +4,7 @@
 
 <%- if options[:authlogic] -%>
 - semantic_form_for @<%= session_singular_name %> do |f|
-  = f.error_messages
+  = f.error_message_on :base
   - f.inputs do
     = f.input :username
     = f.input :password
