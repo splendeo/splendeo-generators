@@ -1,0 +1,14 @@
+en:
+  back_to_list_link: "Back to List"
+  destroy_confirmation: "Are you sure?"
+  destroy_link: "Destroy"
+  edit_link: "Edit"
+  edit_title: "Edit {{model}}"
+  new_link: "New {{model}}"
+  new_title: "New {{model}}"
+  show_link: "Show"
+  view_all_link: "View All"
+
+  flash_notice_successfully_created: "Successfully created {{model}}"
+  flash_notice_successfully_destroyed: "Successfully destroyed {{model}}"
+  flash_notice_successfully_updated: "Successfully destroyed {{model}}"
