@@ -17,11 +17,6 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
       end
       
       if options[:haml]
-      
-        unless options[:skip_formtastic]
-          m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
-          m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
-        end
 
         m.directory 'vendor/plugins/haml'
         m.directory 'public/stylesheets/sass'
@@ -43,12 +38,12 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
 
         m.template "layout.html.haml", "app/views/layouts/#{file_name}.html.haml"
         m.file     "sass/stylesheet.sass",  "public/stylesheets/sass/#{file_name}.sass"
-      else
-
+        
         unless options[:skip_formtastic]
-          m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
-          m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
+          m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
+          m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
         end
+      else
 
         m.directory 'public/stylesheets/blueprint'
         m.directory 'public/stylesheets/blueprint/plugins'
@@ -67,6 +62,11 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
 
         m.template "layout.html.erb", "app/views/layouts/#{file_name}.html.erb"
         m.file     "css/stylesheet.css",  "public/stylesheets/#{file_name}.css"
+
+        unless options[:skip_formtastic]
+          m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
+          m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
+        end
       end
       m.file "helper.rb", "app/helpers/layout_helper.rb"
     end
