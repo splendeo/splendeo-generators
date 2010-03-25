@@ -5,12 +5,12 @@
 <%% semantic_form_for @<%= user_singular_name %> do |f| %>
   <%%= f.error_message_on :base %>
   <%% f.inputs do %>
-    <%= f.input :username %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-  <% end %>
+    <%%= f.input :username %>
+    <%%= f.input :email %>
+    <%%= f.input :password %>
+    <%%= f.input :password_confirmation %>
+  <%% end %>
   <%% f.buttons do %>
-    <%= f.commit_button t('sign_up_button') %>
-  <% end %>
+    <%%= f.commit_button t('sign_up_button') %>
+  <%% end %>
 <%% end %>

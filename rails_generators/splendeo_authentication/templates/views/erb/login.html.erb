@@ -1,18 +1,18 @@
 <%% title t('log_in_title') %>
 
-<p><%%= t('signup_message', :url => signup_path) %></p>
+<p><%%= t('sign_up_message', :url => signup_path) %></p>
 
 <%- if options[:authlogic] -%>
 <%% semantic_form_for @<%= session_singular_name %> do |f| %>
   <%= f.error_message_on :base %>
   
   <%% f.inputs do %>
-    <%= f.input :username %>
-    <%= f.input :password %>
+    <%%= f.input :username %>
+    <%%= f.input :password %>
   <%% end %>
 
   <%% f.buttons do %>
-    <%= f.commit_button t('log_in_button') %>
+    <%%= f.commit_button t('log_in_button') %>
   <%% end %>
 
 <%% end %>

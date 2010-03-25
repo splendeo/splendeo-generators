@@ -109,6 +109,10 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     names.all? { |n| action? n.to_s }
   end
   
+  def actions_with_find
+    actions?(:show,:edit,:update,:destroy)
+  end
+  
   def singular_name
     name.underscore
   end
