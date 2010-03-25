@@ -110,7 +110,7 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
   end
   
   def actions_with_find
-    actions?(:show,:edit,:update,:destroy)
+    %w[ show edit update destroy ].select{|a| action?(a)}
   end
   
   def singular_name
