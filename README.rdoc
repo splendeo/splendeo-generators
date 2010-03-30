@@ -2,6 +2,12 @@
 
 A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 
+This is a fork from Ryanb's nifty_generators (http://github.com/ryanb/nifty-generators). It extends it with 
+the following features:
+
+* Everything is translatable in a i18n-compliant way
+* formtastic is used for forms
+* blueprintcss is included by default
 
 == Install
 
@@ -40,6 +46,10 @@ One of the primary differences is that splendeo_scaffold allows you to choose wh
 There are a few changes to the generated code as well, such as no XML format by default.
 
 It also offers support for HAML, Shoulda, and RSpec.
+
+i18n + formtastic support make translations much easier.
+
+Finally, blueprintcss is installed by default.
 
 
 <b>I get "undefined method 'title'" error.</b>
@@ -88,11 +98,9 @@ Also, make sure you're using Rails 2.1 or greater.
 
 If you are having a problem with Splendeo Generators, first look at the FAQs above. If you still cannot resolve it, please submit an issue here.
 
-http://github.com/ryanb/splendeo-generators/issues
+http://github.com/splendeo/splendeo-generators/issues
 
 
 == Rails 3
 
-Splendeo Generators does not yet officially work with Rails 3, but a fork is available here.
-
-http://github.com/dvyjones/splendeo-generators
+Splendeo Generators does not work with Rails 3.
