@@ -38,11 +38,10 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
 
         m.template "layout.html.haml", "app/views/layouts/#{file_name}.html.haml"
         m.file     "sass/stylesheet.sass",  "public/stylesheets/sass/#{file_name}.sass"
-        
-        unless options[:skip_formtastic]
-          m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
-          m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
-        end
+
+        m.file 'sass/formtastic.sass', 'public/stylesheets/sass/formtastic.sass'
+        m.file 'sass/formtastic_changes.sass', 'public/stylesheets/sass/formtastic_changes.sass'
+
       else
 
         m.directory 'public/stylesheets/blueprint'
@@ -63,10 +62,8 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
         m.template "layout.html.erb", "app/views/layouts/#{file_name}.html.erb"
         m.file     "css/stylesheet.css",  "public/stylesheets/#{file_name}.css"
 
-        unless options[:skip_formtastic]
-          m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
-          m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
-        end
+        m.file 'css/formtastic.css', 'public/stylesheets/formtastic.css'
+        m.file 'css/formtastic_changes.css', 'public/stylesheets/formtastic_changes.css'
       end
       m.file "helper.rb", "app/helpers/layout_helper.rb"
     end
@@ -83,7 +80,6 @@ class SplendeoLayoutGenerator < Rails::Generator::Base
       opt.separator 'Options:'
       opt.on("--haml", "Generate HAML for view, and SASS for stylesheet.") { |v| options[:haml] = v }
       opt.on("--skip-locale", "Skips the generation of a locale file") { |v| options[:skip_locale] = true }
-      opt.on("--skip-formtastic", "Skips the generation formtastic-related files") { |v| options[:skip_formtastic] = true }
     end
 
     def banner
