@@ -1,6 +1,6 @@
 <%% title t('sign_up_title') %>
 
-<p><%%= t('log_in_message', :url => login_path) %></p>
+<p><%%= t('log_in_message', :link => link_to(t("log_in_link"), login_path)) %></p>
 
 <%% semantic_form_for @<%= user_singular_name %> do |f| %>
   <%%= f.error_message_on :base %>

@@ -21,10 +21,12 @@ en:
 
   # Authentication
   log_in_button: "Log In"
-  log_in_message: "Already have an account? <a href='{{url}}'>Log in!</a>"
+  log_in_message: "Already have an account? {{link}}"
+  log_in_link: "Log in!"
   log_in_title: "Log In"
   sign_up_button: "Sign Up"
-  sign_up_message: "Don't have an account? <a href='{{url}}'>Sign up!</a>"
+  sign_up_message: "Don't have an account? {{link}}"
+  sign_up_link: "Sign up!"
   sign_up_title: "Sign Up"
   login_label: "Login"
   password_label: "Password"
