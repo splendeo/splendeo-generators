@@ -10,7 +10,7 @@ class <%= user_plural_class_name %>Controller < ApplicationController
       session[:<%= user_singular_name %>_id] = @<%= user_singular_name %>.id
     <%- end -%>
       flash[:notice] = t('flash_notice_signed_up')
-      redirect_to root_url
+      redirect_to root_path
     else
       render :action => 'new'
     end

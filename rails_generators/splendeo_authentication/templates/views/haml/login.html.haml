@@ -1,6 +1,6 @@
 - title t('log_in_title')
 
-%p== t('sign_up_message', :url => signup_path)
+%p= t('sign_up_message', :url => signup_path)
 
 <%- if options[:authlogic] -%>
 - semantic_form_for @<%= session_singular_name %> do |f|

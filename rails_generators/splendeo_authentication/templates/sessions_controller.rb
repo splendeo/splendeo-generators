@@ -8,7 +8,7 @@ class <%= session_plural_class_name %>Controller < ApplicationController
     @<%= session_singular_name %> = <%= session_class_name %>.new(params[:<%= session_singular_name %>])
     if @<%= session_singular_name %>.save
       flash[:notice] = t('flash_notice_logged_in')
-      redirect_to_target_or_default(root_url)
+      redirect_to_target_or_default(root_path)
     else
       flash.now[:error] = t('flash_error_invalid_login')
       render :action => 'new'
@@ -19,7 +19,7 @@ class <%= session_plural_class_name %>Controller < ApplicationController
     @<%= session_singular_name %> = <%= session_class_name %>.find
     @<%= session_singular_name %>.destroy
     flash[:notice] = t('flash_notice_logged_out')
-    redirect_to root_url
+    redirect_to root_path
   end
 <%- else -%>
   def new
@@ -30,7 +30,7 @@ class <%= session_plural_class_name %>Controller < ApplicationController
     if <%= user_singular_name %>
       session[:<%= user_singular_name %>_id] = <%= user_singular_name %>.id
       flash[:notice] = t('flash_notice_logged_in')
-      redirect_to_target_or_default(root_url)
+      redirect_to_target_or_default(root_path)
     else
       flash.now[:error] = t('flash_error_invalid_login')
       render :action => 'new'
@@ -40,7 +40,7 @@ class <%= session_plural_class_name %>Controller < ApplicationController
   def destroy
     session[:<%= user_singular_name %>_id] = nil
     flash[:notice] = t('flash_notice_logged_out')
-    redirect_to root_url
+    redirect_to root_path
   end
 <%- end -%>
 end
