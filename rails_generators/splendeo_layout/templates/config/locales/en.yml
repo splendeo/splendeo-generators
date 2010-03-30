@@ -21,7 +21,7 @@ en:
 
   # Authentication
   log_in_button: "Log In"
-  log_in_message: "Already have an account? <a href='{{url}}>Log in!</a>"
+  log_in_message: "Already have an account? <a href='{{url}}'>Log in!</a>"
   log_in_title: "Log In"
   sign_up_button: "Sign Up"
   sign_up_message: "Don't have an account? <a href='{{url}}'>Sign up!</a>"
