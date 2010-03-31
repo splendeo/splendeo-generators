@@ -8,14 +8,6 @@
 <%- end -%>
 
 %p
-  <%- if action? :edit -%>
-  = link_to t('edit_link'), edit_<%= singular_name %>_path(@<%= singular_name %>)
-  |
-  <%- end -%>
-  <%- if action? :destroy -%>
-  = link_to t('destroy_link'), @<%= singular_name %>, :confirm => t('destroy_confirmation'), :method => :delete
-  |
-  <%- end -%>
-  <%- if action? :index -%>
-  = link_to t('view_all_link'), <%= plural_name %>_path
-  <%- end -%>
+<%= link :edit, :ident => 1 %>
+<%= link :destroy, :ident => 1 %>
+<%= link :index, :ident => 1 %>

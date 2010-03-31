@@ -109,8 +109,12 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     names.all? { |n| action? n.to_s }
   end
   
-  def actions_with_find
+  def member_actions
     %w[ show edit update destroy ].select{|a| action?(a)}
+  end
+  
+  def new_actions
+    %w[ new create ].select{|a| action?(a)}
   end
   
   def singular_name
@@ -133,6 +137,32 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     controller_actions.map do |action|
       read_template("#{dir_name}/#{action}.rb")
     end.join("  \n").strip
+  end
+  
+  def link(action, options={})
+    if action? action
+      instance_variable = options[:instance_variable].nil? ? true : options[:instance_variable]
+      tag= options[:tag]
+      ident = options[:ident].nil? ? 0 : options[:ident]
+
+      text = read_template("views/#{view_language}/_link_#{action}.html.#{view_language}")
+      text = text.gsub("@#{singular_name}", singular_name) if instance_variable == false
+
+      tab_string = '  ' * ident
+      if(tag.present?)
+        tab_string2 = '  ' + tab_string
+        text = "\n#{tab_string2}#{text.gsub('\n', '\n' + tab_string2)}"
+        if(view_language == 'erb')
+          text = "\n#{tab_string}<#{tag}>#{text}#{tab_string}</#{tag}>"
+        else
+          text = "\n#{tab_string}\%#{tag}#{text}"
+        end
+      else
+        text = "\n#{tab_string}#{text.gsub('\n', '\n' + tab_string)}"
+      end
+
+      return text
+    end
   end
   
   def render_form

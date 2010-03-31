@@ -10,16 +10,10 @@
       <%- for attribute in attributes -%>
       %td= h <%= singular_name %>.<%= attribute.name %>
       <%- end -%>
-      <%- if action? :show -%>
-      %td= link_to t('show_link'), <%= singular_name %>
-      <%- end -%>
-      <%- if action? :edit -%>
-      %td= link_to t('edit_link'), edit_<%= singular_name %>_path(<%= singular_name %>)
-      <%- end -%>
-      <%- if action? :destroy -%>
-      %td= link_to t('destroy_link'), <%= singular_name %>, :confirm => t('destroy_confirmation'), :method => :delete
-      <%- end -%>
+<%= link :show, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= link :edit, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= link :destroy, :ident => 3, :tag => :td, :instance_variable => false -%>
 
 <%- if actions? :new -%>
-%p= link_to t("new_link", :model => <%= class_name %>.human_name), new_<%= singular_name %>_path
+<%= link :new, :tag => :p -%>
 <%- end -%>
