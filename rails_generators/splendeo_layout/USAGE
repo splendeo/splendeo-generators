@@ -3,23 +3,65 @@ Description:
   helper which will give some structure to a starting Rails app.
   
   The generator takes one argument which will be the name of the
-	layout and stylesheet files. If no argument is passed then it defaults
-	to "application".
+  layout and stylesheet files. If no argument is passed then it defaults
+  to "application".
   
   The helper module includes some methods which can be called in any
   template or partial to set variables to be used in the layout, such as
   page title and javascript/stylesheet includes.
+  
+  Includes formtastic & blueprint stylesheets by default. Blueprint plugins
+  are available but commented out by default.
+  
+  Includes a sample English locale for easy i18n. Note that if you are 
+  translating to other languages, you may need to complete it with text for
+  translating rails' internal messages. Get the files you need from
+  
+  http://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
+  
+  and then add the parts contained on en.yml.
+  
+  The helper includes a --skip-locale option that deactivates the generation
+  of the locale file.
+  
+  The helper admits a --haml option that generates haml and sass files.
+  On this case it will also generate a haml plugin initialization file.
+
 
 Examples:
     script/generate splendeo_layout
 
-        Layout:     app/views/layouts/application.html.erb
-        Stylesheet: public/stylesheets/application.css
-        Helper:     app/helpers/layout_helper.rb
+        Layout:       app/views/layouts/application.html.erb
+        Stylesheets:  public/stylesheets/application.css
+                      public/stylesheets/blueprint/*
+                      public/stylesheets/formtastic.css
+                      public/stylesheets/formtastic_changes.css
+        Helper:       app/helpers/layout_helper.rb
+        Initializers: config/initializers/formtastic.rb
+        Locale:       config/locales/en.yml
 
 
     script/generate splendeo_layout admin
 
-        Layout:     app/views/layouts/admin.html.erb
-        Stylesheet: public/stylesheets/admin.css
-        Helper:     app/helpers/layout_helper.rb
+        Layout:       app/views/layouts/admin.html.erb
+        Stylesheets:  public/stylesheets/admin.css
+                      public/stylesheets/blueprint/*
+                      public/stylesheets/formtastic.css
+                      public/stylesheets/formtastic_changes.css
+        Helper:       app/helpers/layout_helper.rb
+        Initializers: config/initializers/formtastic.rb
+        Locale:       config/locales/en.yml
+
+
+    script/generate splendeo_layout --haml
+
+        Layout:       app/views/layouts/application.html.haml
+        Stylesheets:  public/stylesheets/sass/application.sass
+                      public/stylesheets/sass/blueprint/*
+                      public/stylesheets/sass/formtastic.sass
+                      public/stylesheets/sass/formtastic_changes.sass
+        Helper:       app/helpers/layout_helper.rb
+        Initializers: config/initializers/formtastic.rb
+        Locale:       config/locales/en.yml
+        Plugin:       vendor/plugins/haml/init.rb
+
