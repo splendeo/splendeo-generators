@@ -189,6 +189,14 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     test_framework == :rspec
   end
   
+  def declarative?
+    authorization_framework == :declarative_authorization
+  end
+  
+  def cancan?
+    authorization_framework == :cancan
+  end
+  
 protected
   
   def view_language
@@ -197,6 +205,18 @@ protected
   
   def test_framework
     options[:test_framework] ||= default_test_framework
+  end
+  
+  def authorization_framework
+    return nil if options[:skip_authorization]
+    options[:authorization_framework] ||= default_authorization_framework
+  end
+  
+  def default_authorization_framework
+    return nil if options[:skip_authorization]
+    return :declarative_authorization if(File.exist?(destination_path("config/authorization_rules.rb")))
+    return :cancan if(File.exist?(destination_path("models/ability.rb")))
+    return nil
   end
   
   def default_test_framework
@@ -210,6 +230,11 @@ protected
     opt.on("--skip-migration", "Don't generate migration file for model.") { |v| options[:skip_migration] = v }
     opt.on("--skip-timestamps", "Don't add timestamps to migration file.") { |v| options[:skip_timestamps] = v }
     opt.on("--skip-controller", "Don't generate controller, helper, or views.") { |v| options[:skip_controller] = v }
+
+    opt.on("--skip-authorization", "Don't generate authorization controls") { |v| options[:skip_authorization] = v }
+    opt.on("--declarative", "Include basic declarative authorization commands on models and controllers.") {|v| options[:authorization_framework] = :declarative_authorization}
+    opt.on("--cancan", "Include basic declarative authorization commands on models and controllers.") {|v| options[:authorization_framework] = :cancan}
+
     opt.on("--invert", "Generate all controller actions except these mentioned.") { |v| options[:invert] = v }
     opt.on("--haml", "Generate HAML views instead of ERB.") { |v| options[:haml] = v }
     opt.on("--testunit", "Use test/unit for test files.") { options[:test_framework] = :testunit }
