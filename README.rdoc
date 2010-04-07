@@ -8,6 +8,7 @@ the following features:
 * Everything is translatable in a i18n-compliant way
 * formtastic is used for forms
 * blueprintcss is included by default
+* The scaffold generator supports declarative_authorization and cancan
 
 == Install
 
