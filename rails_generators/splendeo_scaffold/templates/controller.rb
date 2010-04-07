@@ -17,7 +17,7 @@ class <%= plural_class_name %>Controller < ApplicationController
 
 protected
 
-<%- if authorization_framework == nil -%>
+<%- unless authorized? -%>
 
   <%- if new_actions.length > 0 -%>
   def new_<%= singular_name %>_from_params

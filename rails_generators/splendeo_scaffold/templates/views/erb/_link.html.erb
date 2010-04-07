@@ -1,0 +1,7 @@
+<%- if authorized? -%>
+<%% if <%= authorized_verb %> :<%= @action %>, @<%= singular_name %> do %%>
+  <%= read_template "views/erb/_link_#{@action}.html.erb" %>
+<%% end %%>
+<%- else -%>
+<%= read_template "views/erb/_link_#{@action}.html.erb" %>
+<%- end -%>

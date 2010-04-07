@@ -139,29 +139,27 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     end.join("  \n").strip
   end
   
+  def tabify(text, ident)
+    tab_string = '  ' * ident
+    return "\n#{tab_string}#{text.gsub('\n', '\n' + tab_string)}"
+  end
+  
   def link(action, options={})
     if action? action
+      @action = action
+
       instance_variable = options[:instance_variable].nil? ? true : options[:instance_variable]
-      tag= options[:tag]
+      @tag= options[:tag]
       ident = options[:ident].nil? ? 0 : options[:ident]
 
-      text = read_template("views/#{view_language}/_link_#{action}.html.#{view_language}")
+      if(@tag.present?)
+        text = read_template("views/#{view_language}/_tagged_link.html.#{view_language}")
+      else
+        text = read_template("views/#{view_language}/_link.html.#{view_language}")
+      end
       text = text.gsub("@#{singular_name}", singular_name) if instance_variable == false
 
-      tab_string = '  ' * ident
-      if(tag.present?)
-        tab_string2 = '  ' + tab_string
-        text = "\n#{tab_string2}#{text.gsub('\n', '\n' + tab_string2)}"
-        if(view_language == 'erb')
-          text = "\n#{tab_string}<#{tag}>#{text}#{tab_string}</#{tag}>"
-        else
-          text = "\n#{tab_string}\%#{tag}#{text}"
-        end
-      else
-        text = "\n#{tab_string}#{text.gsub('\n', '\n' + tab_string)}"
-      end
-
-      return text
+      return tabify(text, ident)
     end
   end
   
@@ -227,6 +225,16 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     authorization_framework == :cancan
   end
   
+  def authorized?
+    af = authorization_framework
+    return (af==:cancan or af==:declarative_authorization)
+  end
+  
+  def authorized_verb
+    return 'permitted_to?' if declarative?
+    return 'can?' if cancan?
+  end
+  
 protected
   
   def view_language
@@ -240,6 +248,7 @@ protected
   def authorization_framework
     return nil if options[:skip_authorization]
     options[:authorization_framework] ||= default_authorization_framework
+    return options[:authorization_framework]
   end
   
   def default_authorization_framework

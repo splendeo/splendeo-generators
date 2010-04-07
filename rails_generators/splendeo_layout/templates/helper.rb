@@ -7,16 +7,33 @@ module LayoutHelper
     @content_for_title = page_title.to_s
     @show_title = show_title
   end
-  
+
   def show_title?
     @show_title
   end
-  
+
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }
   end
-  
+
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
+  end
+
+  def link_to_with_permissions(text, path, permission, context, options={})
+    tag = options.delete(:tag)
+    if(tag.present?)
+      content_tag(tag, link_to(text, path), options)) if permitted_to? permission, context
+    else
+      link_to(text, path) if permitted_to? permission, context
+    end
+  end
+
+  def authorized_to?(permission, context)
+    permitted_to? permission, context
+  rescue NoMethodError 
+    can? permission, context
+  rescue NoMethodError
+    true
   end
 end
