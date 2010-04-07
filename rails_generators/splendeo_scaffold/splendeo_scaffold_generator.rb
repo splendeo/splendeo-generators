@@ -141,7 +141,7 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
   
   def tabify(text, ident)
     tab_string = '  ' * ident
-    return "\n#{tab_string}#{text.gsub('\n', '\n' + tab_string)}"
+    return tab_string + text.rstrip.gsub("\n", "\n#{tab_string}") + "\n"
   end
   
   def link(action, options={})
@@ -233,6 +233,11 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
   def authorized_verb
     return 'permitted_to?' if declarative?
     return 'can?' if cancan?
+  end
+  
+  def authorization_context
+    return ":#{plural_name}" if [:index,:new].include? @action
+    return "@#{singular_name}"
   end
   
 protected
