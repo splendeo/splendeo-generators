@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name = "splendeo-generators"
   s.summary = "A collection of useful Rails generator scripts."
-  s.description = "A fork of ryanb's nifty-generators, with i18n and blueprint."
+  s.description = "ryanb's nifty-generators + i18n, blueprint, formtastic, declarative_authorization and cancan."
   s.homepage = "http://github.com/splendeo/splendeo-generators"
   
-  s.version = "0.2.1"
-  s.date = "2010-02-16"
+  s.version = "0.3.0"
+  s.date = "2010-04-07"
   
   s.authors = ["Ryan Bates", "Enrique Garcia Cota", "Francisco Juan"]
   s.email = "egarcia@splendeo.es"
