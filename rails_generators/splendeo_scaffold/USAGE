@@ -4,6 +4,8 @@ Description:
     resource-oriented application. Tests or specs are also generated depending
     on if you have a "spec" directory or not.
     
+    Haml, declarative_authorization and cancan are also supported on this generator.
+    
     IMPORTANT: This generator uses the "title" helper method which is generated
     by the splendeo_layout generator. You may want to run that generator first.
 
@@ -30,6 +32,16 @@ Usage:
     Adding an "!" in the mix of arguments will invert the passed controller
     actions. This will include all 7 controller actitons except the ones
     mentioned. This option doesn't affect model attributes.
+    
+    The --haml option generates haml views instead of erb.
+    
+    The --declarative option will use declarative_authorization on the controller, 
+    model & views. This option will be activated automatically if there's a file
+    named config/authorization_rules.
+    The --cancan option will do the same but using cancan. This option will be 
+    activated automatically if declarative authorization isn't active and there's a
+    file named models/ability.rb
+    Use --skip-authorization if you want to generate without authorization.
 
 Examples:
     script/generate splendeo_scaffold post
@@ -37,15 +49,28 @@ Examples:
         Will create a controller called "posts" it will contain all seven
         CRUD actions along with the views. A model will NOT be created,
         instead it will look for an existing model and use those attributes.
-    
+
     script/generate splendeo_scaffold post name:string content:text index new edit
         
         Will create a Post model and migration file with the name and content
         attributes. It will also create a controller with index, new, create,
         edit, and update actions. Notice the create and update actions are
         added automatically with new and edit.
-    
+
     script/generate splendeo_scaffold post ! show new
         
         Creates a posts controller (no model) with index, edit, update, and
         destroy actions.
+        
+    script/generate splendeo_scaffold post name:string content:text --declarative
+
+        Will create a model and migration file, and controller called "posts".
+        Declarative authorization will be used to authorize the model, controller and
+        view links.
+
+    script/generate splendeo_scaffold post --haml
+
+        Will create the controller with all 7 views. It will try to look for an existing
+        model. Views will be generated using haml instead of erb.
+    
+        
