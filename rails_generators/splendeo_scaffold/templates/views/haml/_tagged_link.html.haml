@@ -1,0 +1,9 @@
+<%- if authorized? -%>
+- if <%= authorized_verb %> :<%= @action %>, <%= authorization_context %>
+  %<%= @tag %>
+    <%= read_template "views/haml/_link_#{@action}.html.haml" -%>
+<%- else -%>
+%<%= @tag %>
+  <%= read_template "views/haml/_link_#{@action}.html.haml" -%>
+<%- end -%>
+

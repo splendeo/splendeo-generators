@@ -1,5 +1,5 @@
 <%- if authorized? -%>
-<%% if <%= authorized_verb %> :<%= @action %>, <%= authorization_context %> do %>
+<%% if <%= authorized_verb %> :<%= @action %>, <%= authorization_context %> %>
   <%= read_template "views/erb/_link_#{@action}.html.erb" -%>
 <%% end %>
 <%- else -%>
