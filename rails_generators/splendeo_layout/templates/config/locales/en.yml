@@ -11,7 +11,7 @@ en:
 
   flash_notice_successfully_created: "Successfully created {{model}}"
   flash_notice_successfully_destroyed: "Successfully destroyed {{model}}"
-  flash_notice_successfully_updated: "Successfully destroyed {{model}}"
+  flash_notice_successfully_updated: "Successfully updated {{model}}"
 
   # Formtastic buttons
   formtastic:

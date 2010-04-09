@@ -10,10 +10,9 @@
       <%- for attribute in attributes -%>
       %td= h <%= singular_name %>.<%= attribute.name %>
       <%- end -%>
-<%= link :show, :ident => 3, :tag => :td, :instance_variable => false -%>
-<%= link :edit, :ident => 3, :tag => :td, :instance_variable => false -%>
-<%= link :destroy, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :show, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :edit, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :destroy, :ident => 3, :tag => :td, :instance_variable => false -%>
 
-<%- if actions? :new -%>
-<%= link :new, :tag => :p -%>
-<%- end -%>
+<%= render_link :new, :tag => :p -%>
+

@@ -144,7 +144,7 @@ class SplendeoScaffoldGenerator < Rails::Generator::Base
     return tab_string + text.rstrip.gsub("\n", "\n#{tab_string}") + "\n"
   end
   
-  def link(action, options={})
+  def render_link(action, options={})
     if action? action
       @action = action
 

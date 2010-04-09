@@ -11,11 +11,11 @@
     <%- for attribute in attributes -%>
       <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
     <%- end -%>
-<%= link :show, :ident => 3, :tag => :td, :instance_variable => false -%>
-<%= link :edit, :ident => 3, :tag => :td, :instance_variable => false -%>
-<%= link :destroy, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :show, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :edit, :ident => 3, :tag => :td, :instance_variable => false -%>
+<%= render_link :destroy, :ident => 3, :tag => :td, :instance_variable => false -%>
     </tr>
   <%% end %>
 </table>
 
-<%= link :new, :tag => :p -%>
+<%= render_link :new, :tag => :p -%>
