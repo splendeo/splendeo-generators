@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.description = "ryanb's nifty-generators + i18n, blueprint, formtastic, declarative_authorization and cancan."
   s.homepage = "http://github.com/splendeo/splendeo-generators"
   
-  s.version = "0.3.0"
+  s.version = "0.3.1"
   s.date = "2010-04-07"
   
   s.authors = ["Ryan Bates", "Enrique Garcia Cota", "Francisco Juan"]
